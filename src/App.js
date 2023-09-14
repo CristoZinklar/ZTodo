@@ -14,14 +14,28 @@ const DATA = [
 function App() {
   const [appVersion, setAppVersion] = useState(FUNCTIONAL);
 
+  const functionalClassNames = `btn btn-${
+    appVersion === FUNCTIONAL ? "primary" : "secundary"
+  }`;
+  const OOPClassNames = `btn btn-${
+    appVersion === OOP ? "primary" : "secundary"
+  }`;
+
   return (
     <>
       <div>
-        <button onClick={() => setAppVersion(FUNCTIONAL)}>Functional</button>
-        <button onClick={() => setAppVersion(OOP)}>OOP</button>
+        <button
+          className={functionalClassNames}
+          onClick={() => setAppVersion(FUNCTIONAL)}>
+          Functional
+        </button>
+        <button className={OOPClassNames} onClick={() => setAppVersion(OOP)}>
+          OOP
+        </button>
       </div>
+      <span>Active version: {appVersion}</span>
       {appVersion === FUNCTIONAL && <FunctionalTodoList tasks={DATA} />}
-      {appVersion === OOP && <OOPTodoList tasks={DATA} />}
+      {appVersion === OOP && <OOPTodoList />}
     </>
   );
 }
