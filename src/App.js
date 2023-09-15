@@ -17,11 +17,16 @@ function App() {
   return (
     <>
       <div>
-        <button onClick={() => setAppVersion(FUNCTIONAL)}>Functional</button>
-        <button onClick={() => setAppVersion(OOP)}>OOP</button>
+        <button className={"btn"} onClick={() => setAppVersion(FUNCTIONAL)}>
+          Functional
+        </button>
+        <button className={"btn"} onClick={() => setAppVersion(OOP)}>
+          OOP
+        </button>
       </div>
+      <span>Active version: {appVersion}</span>
       {appVersion === FUNCTIONAL && <FunctionalTodoList tasks={DATA} />}
-      {appVersion === OOP && <OOPTodoList tasks={DATA} />}
+      {appVersion === OOP && <OOPTodoList />}
     </>
   );
 }
